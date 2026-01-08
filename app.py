@@ -231,6 +231,10 @@ def contact():
 
     return render_template("contact.html")
 
+@app.route("/tarifs")
+def tarifs():
+    return render_template("tarifs.html")
+
 # -------------------------
 # AUTH - register / login / logout / change_password
 # -------------------------
@@ -475,8 +479,3 @@ def server_error(e):
 # -------------------------
 if __name__ == "__main__":
     app.run(debug=True)
-
-@app.route("/tarifs")
-def tarifs():
-    """Page Tarifs et Délais 2025"""
-    return render_template("tarifs.html")
