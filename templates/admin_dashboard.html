@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ t["admin_dashboard_title"] }} — Héloïse Laporte{% endblock %}
+
+{% block content %}
+<main class="container admin-dashboard">
+
+    <h1>{{ t["admin_dashboard_title"] }}</h1>
+
+    <!-- Section Clients -->
+    <section class="admin-section">
+        <h2>{{ t["admin_clients_title"] }}</h2>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>{{ t["admin_clients_email"] }}</th>
+                    <th>{{ t["admin_clients_created"] }}</th>
+                    <th>{{ t["admin_clients_actions"] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in clients %}
+                <tr>
+                    <td>{{ c['email'] }}</td>
+                    <td>{{ c['created_at'] }}</td>
+                    <td>
+                        <a href="#">{{ t["admin_edit"] }}</a> | <a href="#">{{ t["admin_delete"] }}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Section Devis -->
+    <section class="admin-section">
+        <h2>{{ t["admin_quotes_title"] }}</h2>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>{{ t["admin_quote_number"] }}</th>
+                    <th>{{ t["admin_quote_client"] }}</th>
+                    <th>{{ t["admin_quote_amount"] }}</th>
+                    <th>{{ t["admin_quote_date"] }}</th>
+                    <th>{{ t["admin_quote_status"] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for q in quotes %}
+                <tr>
+                    <td>{{ q['number'] }}</td>
+                    <td>{{ q['user_id'] }}</td>
+                    <td>{{ q['amount'] }}</td>
+                    <td>{{ q['date'] }}</td>
+                    <td>{{ q['status'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Section Factures -->
+    <section class="admin-section">
+        <h2>{{ t["admin_invoices_title"] }}</h2>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>{{ t["admin_invoice_number"] }}</th>
+                    <th>{{ t["admin_invoice_client"] }}</th>
+                    <th>{{ t["admin_invoice_amount"] }}</th>
+                    <th>{{ t["admin_invoice_date"] }}</th>
+                    <th>{{ t["admin_invoice_status"] }}</th>
+                    <th>{{ t["admin_invoice_pdf"] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in invoices %}
+                <tr>
+                    <td>{{ i['number'] }}</td>
+                    <td>{{ i['user_id'] }}</td>
+                    <td>{{ i['amount'] }}</td>
+                    <td>{{ i['date'] }}</td>
+                    <td>{{ i['status'] }}</td>
+                    <td><a href="/invoice/{{ i['id'] }}/pdf">{{ t["admin_download_pdf"] }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Section Messages -->
+    <section class="admin-section">
+        <h2>{{ t["admin_messages_title"] }}</h2>
+        {% for m in messages %}
+        <p><strong>{{ m['sender_id'] }} → {{ m['receiver_id'] }}</strong> : {{ m['content'] }} ({{ m['date'] }})</p>
+        {% endfor %}
+    </section>
+
+    <!-- Section Projets -->
+    <section class="admin-section">
+        <h2>{{ t["admin_projects_title"] }}</h2>
+        {% for p in projects %}
+        <p>{{ p['title_fr'] }} / {{ p['title_en'] }} / {{ p['title_es'] }}</p>
+        {% endfor %}
+    </section>
+
+</main>
+{% endblock %}

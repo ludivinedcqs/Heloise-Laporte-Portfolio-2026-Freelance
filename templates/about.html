@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block title %}{{ t["about_title"] }}{% endblock %}
+{% block content %}
+
+<section class="about-container">
+
+    <header class="about-header">
+        <h1 class="about-title">{{ t["about_main_title"] }}</h1>
+        <p class="about-intro">{{ t["about_paragraph_1"] }}</p>
+        <p>{{ t["about_paragraph_2"] }}</p>
+    </header>
+
+    <!-- Langues -->
+    <section class="about-section">
+        <h2>{{ t["about_languages_title"] }}</h2>
+        <div class="about-cards">
+            <div class="about-card">{{ t["about_language_french"] }}</div>
+            <div class="about-card">{{ t["about_language_english"] }}</div>
+            <div class="about-card">{{ t["about_language_spanish"] }}</div>
+        </div>
+    </section>
+
+    <!-- Domaines -->
+    <section class="about-section">
+        <h2>{{ t["about_domains_title"] }}</h2>
+        <div class="about-cards">
+            <div class="about-card">{{ t["about_domain_literary"] }}</div>
+            <div class="about-card">{{ t["about_domain_proofreading"] }}</div>
+            <div class="about-card">{{ t["about_domain_medical"] }}</div>
+            <div class="about-card">{{ t["about_domain_veterinary"] }}</div>
+        </div>
+    </section>
+
+    <!-- Citation -->
+    <blockquote class="about-quote">
+        {{ t["about_quote"] }}
+    </blockquote>
+
+    <!-- Compétences -->
+    <section class="about-section">
+        <h2>{{ t["about_skills_title"] }}</h2>
+
+        <div class="about-skill-group">
+            <h3>{{ t["about_skills_technical_title"] }}</h3>
+            <ul class="about-list">
+                <li>{{ t["about_skill_specialized_translation"] }}</li>
+                <li>{{ t["about_skill_proofreading"] }}</li>
+                <li>{{ t["about_skill_terminology"] }}</li>
+                <li>{{ t["about_skill_transcreation"] }}</li>
+                <li>{{ t["about_skill_postediting"] }}</li>
+                <li>{{ t["about_skill_subtitling"] }}</li>
+            </ul>
+        </div>
+
+        <div class="about-skill-group">
+            <h3>{{ t["about_skills_tools_title"] }}</h3>
+            <ul class="about-list">
+                <li>{{ t["about_tool_trados"] }}</li>
+                <li>{{ t["about_tool_office"] }}</li>
+                <li>{{ t["about_tool_indesign"] }}</li>
+                <li>{{ t["about_tool_aegisub"] }}</li>
+            </ul>
+        </div>
+
+        <div class="about-skill-group">
+            <h3>{{ t["about_skills_soft_title"] }}</h3>
+            <ul class="about-list">
+                <li>{{ t["about_soft_detail"] }}</li>
+                <li>{{ t["about_soft_rigor"] }}</li>
+                <li>{{ t["about_soft_communication"] }}</li>
+                <li>{{ t["about_soft_autonomy"] }}</li>
+                <li>{{ t["about_soft_adaptability"] }}</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Parcours -->
+    <section class="about-section">
+        <h2>{{ t["about_education_title"] }}</h2>
+        <ul class="about-list">
+            <li>{{ t["about_education_2025"] }}</li>
+            <li>{{ t["about_education_2021_2023"] }}</li>
+            <li>{{ t["about_education_2017_2020"] }}</li>
+        </ul>
+    </section>
+
+    <section class="about-section">
+        <h2>{{ t["about_experience_title"] }}</h2>
+        <ul class="about-list">
+            <li>{{ t["about_experience_since_2023"] }}</li>
+            <li>{{ t["about_experience_2023_2024"] }}</li>
+            <li>{{ t["about_experience_2023"] }}</li>
+        </ul>
+    </section>
+
+</section>
+
+{% endblock %}

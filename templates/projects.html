@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block title %}{{ t["projects_title"] }}{% endblock %}
+
+{% block content %}
+
+<section class="projects-container">
+
+    <header class="projects-header">
+        <h1 class="projects-title">{{ t["projects_main_title"] }}</h1>
+    </header>
+
+    <!-- Traduction littéraire -->
+    <section class="projects-section">
+        <h2>{{ t["projects_literary_title"] }}</h2>
+        <div class="project-card">
+            <h3>{{ t["projects_literary_work"] }}</h3>
+            <p>{{ t["projects_literary_genre"] }}</p>
+            <p>{{ t["projects_literary_tasks"] }}</p>
+        </div>
+    </section>
+
+    <!-- Médical -->
+    <section class="projects-section">
+        <h2>{{ t["projects_medical_title"] }}</h2>
+        <div class="project-card">
+            <p>{{ t["projects_medical_desc"] }}</p>
+            <p><em>{{ t["projects_medical_ref"] }}</em></p>
+        </div>
+    </section>
+
+    <!-- Relecture -->
+    <section class="projects-section">
+        <h2>{{ t["projects_proofreading_title"] }}</h2>
+        <div class="project-card">
+            <p>{{ t["projects_proofreading_desc"] }}</p>
+            <ul class="project-list">
+                <li>{{ t["projects_proofreading_editors"] }}</li>
+                <li>{{ t["projects_proofreading_authors"] }}</li>
+                <li>{{ t["projects_proofreading_students"] }}</li>
+                <li>{{ t["projects_proofreading_companies"] }}</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sous-titres -->
+    <section class="projects-section">
+        <h2>{{ t["projects_subtitles_title"] }}</h2>
+        <div class="project-card">
+            <p>{{ t["projects_subtitles_desc"] }}</p>
+        </div>
+    </section>
+
+</section>
+
+{% endblock %}

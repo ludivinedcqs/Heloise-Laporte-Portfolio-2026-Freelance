@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}{{ t["tarifs_title"] }}{% endblock %}
+
+{% block content %}
+
+<section class="tarifs-section container">
+    <h1 class="about-title">{{ t["tarifs_main_title"] }}</h1>
+
+    <div class="tarif-cards-container">
+
+        <!-- Carte Tarifs -->
+        <div class="tarif-card">
+            <h2>{{ t["tarifs_rates_title"] }}</h2>
+            <ul>
+                <li>{{ t["tarifs_translation"] }} : <strong>{{ t["tarifs_translation_rate"] }}</strong></li>
+                <li>{{ t["tarifs_proofreading"] }} : <strong>{{ t["tarifs_proofreading_rate"] }}</strong></li>
+                <li>{{ t["tarifs_postediting"] }} : <strong>{{ t["tarifs_postediting_rate"] }}</strong></li>
+                <li>{{ t["tarifs_subtitles"] }} : <strong>{{ t["tarifs_subtitles_rate"] }}</strong></li>
+            </ul>
+        </div>
+
+        <!-- Carte Délais -->
+        <div class="tarif-card">
+            <h2>{{ t["tarifs_deadlines_title"] }}</h2>
+            <ul>
+                <li>{{ t["tarifs_translation_deadline"] }}</li>
+                <li>{{ t["tarifs_proofreading_deadline"] }}</li>
+                <li>{{ t["tarifs_postediting_deadline"] }}</li>
+                <li>{{ t["tarifs_subtitles_deadline"] }}</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

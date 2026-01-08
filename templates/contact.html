@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ t["contact_title"] }}{% endblock %}
+
+{% block content %}
+<div class="contact-container full-left">
+
+    <header class="contact-header">
+        <h1>{{ t["contact_title"] }}</h1>
+    </header>
+
+    <section class="contact-info-section">
+        <div class="contact-info-card">
+            <p><strong>{{ t["contact_phone"] }}:</strong> <a href="tel:+33645584687">+33 6 45 58 46 87</a></p>
+            <p><strong>{{ t["contact_email_label"] }}:</strong> <a href="mailto:heloise@hitraduction.com">heloise@hitraduction.com</a></p>
+        </div>
+    </section>
+
+    <section class="contact-form-section">
+        <div class="contact-card">
+            {% if success_message %}
+                <p class="success-message">{{ t["contact_success"] }}</p>
+            {% endif %}
+            <form action="/send_message" method="POST">
+                <label for="name">{{ t["contact_name"] }}</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">{{ t["contact_email"] }}</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">{{ t["contact_message"] }}</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+
+                <input type="submit" value="{{ t['contact_send'] }}">
+            </form>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

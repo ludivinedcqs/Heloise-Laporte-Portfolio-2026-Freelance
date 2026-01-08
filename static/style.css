@@ -1,0 +1,953 @@
+/* ---------------------------
+   Reset CSS
+---------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #FAF8F0; /* beige */
+    color: #0A2A66; /* bleu foncé pour le texte */
+}
+
+html, body {
+    height: 100%;      /* Permet à body de prendre toute la hauteur */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Flex vertical */
+    min-height: 100vh;      /* Toujours au moins la hauteur de l'écran */
+}
+
+main {
+    flex: 1;  /* Prend tout l'espace disponible pour pousser le footer en bas */
+}
+/* ---------------------------
+   Conteneur
+---------------------------- */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ---------------------------
+   Navbar
+---------------------------- */
+nav {
+    background-color: #8BA4D8; /* bleu clair */
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #0A2A66; /* bleu foncé */
+}
+
+nav a {
+    color: #0A2A66; /* bleu foncé */
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+.nav-right a {
+    margin-left: 10px;
+}
+
+/* ---------------------------
+   Titres
+---------------------------- */
+h1, h2, h3 {
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: #0A2A66; /* bleu foncé */
+}
+
+/* ---------------------------
+   Paragraphes
+---------------------------- */
+p {
+    margin-bottom: 15px;
+}
+
+/* ---------------------------
+   Boutons
+---------------------------- */
+button,
+input[type="submit"] {
+    background-color: #0A2A66; /* bleu foncé */
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+/* ---------------------------
+   Forms
+---------------------------- */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #8BA4D8; /* bleu clair */
+    border-radius: 4px;
+}
+
+/* ---------------------------
+   Project cards
+---------------------------- */
+.project-card {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #0A2A66; /* bleu foncé */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.aligned-list {
+    margin-top: 10px;
+    padding-left: 20px; /* aligné avec le texte */
+}
+
+.aligned-list li {
+    margin-bottom: 6px;
+}
+
+.project-section ul {
+    margin-top: 10px;
+}
+
+/* ---------------------------
+   Footer
+---------------------------- */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 5px 0; /* réduit la hauteur */
+    color: #0A2A66;
+    background-color: #8BA4D8; /* bleu clair */
+    border-top: 2px solid #0A2A66;
+    font-size: 14px;
+}
+
+/* ---------------------------
+   Index
+---------------------------- */
+@media(max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-right {
+        margin-top: 10px;
+    }
+}
+
+/* Titre principal */
+.home-title {
+    font-size: 30px;      /* même taille que les h1 personnalisés des autres pages */
+    font-weight: 700;
+    color: #0A2A66;
+    margin-bottom: 40px;  /* espace entre titre et sous-titre */
+    white-space: nowrap;   /* empêche le retour à la ligne sur desktop */
+}
+
+/* Sous-titre page d'accueil */
+.home-subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: #4A5F8A;
+    margin-bottom: 40px;
+}
+
+/* Bloc principal texte + photo */
+.home-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* aligne le haut du texte et de la photo */
+    gap: 40px;
+    flex-wrap: nowrap;         /* pour mobile */
+}
+
+.home-text {
+    flex: 0 0 65%; /* Le texte prend 60% de l'espace */
+    max-width: 700px;
+    text-align: justify;
+}
+
+.home-photo {
+    flex: 0 0 35%; /* photo prend environ 35% de l'espace */
+    text-align: right;
+    margin-top: 0px;
+}
+
+.home-photo img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    border: 4px solid #0A2A66;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Boutons sous le texte */
+.home-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.btn-home {
+    background-color: #0A2A66;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.2s, transform 0.2s;
+    width: 200px;
+    text-align: center;
+}
+
+.btn-home:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.home-container {
+    max-width: 1100px;
+    margin: 30px auto;   /* plus petit que 60px → remonte la page */
+    padding: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+/* ---------------------------- */
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .home-intro {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .home-text, .home-photo {
+        flex: 1 1 100%;
+        max-width: none;
+    }
+
+    .home-photo {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .home-title {
+        white-space: normal; /* titre peut revenir à la ligne sur mobile */
+    }
+
+    .home-buttons {
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+/* ---------------------------
+   Exemple de traduction
+---------------------------- */
+.translation-example {
+    max-width: 1100px;
+    margin: 0px auto;
+    padding: 20px;
+}
+
+.translation-example h2 {
+    margin-bottom: 30px;
+    color: #0A2A66;
+}
+
+/* Grille 2 colonnes */
+.translation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+/* Cartes */
+.translation-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 4px solid #0A2A66;
+    box-sizing: border-box;
+}
+
+.translation-card h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #0A2A66;
+}
+
+.translation-card p {
+    text-align: justify;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .translation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ---------------------------
+   Page À propos
+---------------------------- */
+
+.about-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* En-tête */
+.about-header {
+    margin-bottom: 50px;
+}
+
+.about-title {
+    font-size: 30px;
+    color: #0A2A66;
+    margin-bottom: 20px;
+}
+
+.about-intro {
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* Sections */
+.about-section {
+    margin-bottom: 50px;
+}
+
+.about-section h2 {
+    color: #0A2A66;
+    margin-bottom: 25px;
+}
+
+/* Cartes (langues, domaines) */
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.about-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-left: 4px solid #0A2A66;
+    font-weight: 500;
+}
+
+/* Compétences */
+.about-skill-group {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.about-skill-group h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #0A2A66;
+}
+
+/* Listes */
+.about-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.about-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #8BA4D8;
+    font-weight: bold;
+}
+
+/* Citation */
+.about-quote {
+    margin: 50px 0;
+    padding: 25px;
+    background-color: #ffffff;
+    border-left: 4px solid #0A2A66;
+    font-style: italic;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 15px;
+    }
+}
+
+/* ---------------------------
+   Page Projects
+---------------------------- */
+
+.projects-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+    margin-left: -200px;
+}
+
+/* En-tête */
+.projects-header {
+    margin-bottom: 40px;
+}
+
+.projects-title {
+    font-size: 30px;
+    color: #0A2A66;
+}
+
+/* Sections */
+.projects-section {
+    margin-bottom: 45px;
+}
+
+.projects-section h2 {
+    margin-bottom: 20px;
+    color: #0A2A66;
+}
+
+/* Cartes projets */
+.project-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid #0A2A66;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #0A2A66;
+}
+
+/* Listes */
+.project-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.project-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.project-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #8BA4D8;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .projects-container {
+        padding: 15px;
+    }
+}
+
+
+/* ---------------------------
+   Page Tarifs & Délais
+---------------------------- */
+.tarifs-section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.tarif-cards-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap; /* permet d'empiler sur mobile */
+    margin-top: 20px;
+}
+
+.tarif-card {
+    background-color: #fff;
+    border-left: 4px solid #0A2A66;
+    border-radius: 8px;
+    padding: 25px;
+    flex: 1 1 45%; /* prend environ la moitié de l'espace, mais rétractable */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarif-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.tarif-card h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #0A2A66;
+}
+
+.tarif-card ul {
+    padding-left: 20px;
+}
+
+.tarif-card ul li {
+    margin-bottom: 10px;
+}
+
+/* Responsive : empilement sur petits écrans */
+@media (max-width: 768px) {
+    .tarif-cards-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .tarif-card {
+        flex: 1 1 100%;
+    }
+}
+
+/* ---------------------------
+   Page Contact
+---------------------------- */
+.contact-container.full-left {
+    max-width: none;
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 20px;
+    width: 100%;
+}
+
+.contact-header h1 {
+    color: #0A2A66;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.contact-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid #0A2A66;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    max-width: 1000px;
+}
+
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card label {
+    font-weight: 600;
+    color: #0A2A66;
+}
+
+.contact-card input[type="text"],
+.contact-card input[type="email"],
+.contact-card textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #8BA4D8;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.contact-card input[type="submit"] {
+    background-color: #0A2A66;
+    color: #fff;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.contact-card input[type="submit"]:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border-left: 4px solid #0A2A66;
+}
+
+@media(max-width: 768px) {
+    .contact-container.full-left {
+        padding-left: 20px;
+        width: calc(100% - 20px);
+    }
+}
+
+.contact-info-section {
+    margin-bottom: 25px;
+}
+
+.contact-info-card {
+    background-color: #fff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    border-left: 4px solid #0A2A66;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    max-width: 1000px;
+    font-size: 16px;
+    color: #0A2A66;
+}
+
+.contact-info-card p {
+    margin: 8px 0;
+}
+
+.contact-info-card a {
+    color: #0A2A66;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.contact-info-card a:hover {
+    color: #3b5998; /* léger changement de couleur au survol */
+}
+
+
+/* ---------------------------
+   Formulaire Connexion / Inscription
+---------------------------- */
+.auth-section {
+    max-width: 600px;             /* bloc plus large */
+    margin: 60px auto;            /* centré horizontalement et verticalement */
+    padding: 40px 30px;           /* padding plus généreux */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid #0A2A66;
+}
+
+.auth-section h1 {
+    text-align: center;
+    font-size: 32px;              /* titre plus grand */
+    margin-bottom: 30px;
+    color: #0A2A66;
+}
+
+.auth-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;                     /* plus d’espace entre les champs */
+}
+
+.auth-section label {
+    font-weight: 600;
+    color: #0A2A66;
+}
+
+.auth-section input[type="text"],
+.auth-section input[type="email"],
+.auth-section input[type="password"] {
+    width: 100%;
+    padding: 14px 18px;           /* champs plus grands */
+    border: 1px solid #8BA4D8;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.auth-section input[type="text"]:focus,
+.auth-section input[type="email"]:focus,
+.auth-section input[type="password"]:focus {
+    border-color: #0A2A66;
+    box-shadow: 0 0 5px rgba(10, 42, 102, 0.3);
+    outline: none;
+}
+
+.auth-section button {
+    background-color: #0A2A66;
+    color: #fff;
+    border: none;
+    padding: 14px 20px;           /* bouton plus grand */
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.auth-section button:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-section {
+        margin: 40px 15px;
+        padding: 25px 20px;
+    }
+}
+
+/* ---------------------------
+   Admin Dashboard
+---------------------------- */
+
+.admin-dashboard {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    color: #0A2A66;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.admin-dashboard h1,
+.admin-dashboard h2 {
+    color: #0A2A66;
+    margin-bottom: 20px;
+}
+
+.admin-section {
+    margin-bottom: 40px;
+}
+
+/* Tableaux */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.admin-table th,
+.admin-table td {
+    border: 1px solid #8BA4D8; /* bleu clair */
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.admin-table th {
+    background-color: #8BA4D8; /* bleu clair */
+    color: #0A2A66;             /* bleu foncé */
+    font-weight: bold;
+}
+
+.admin-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.admin-table a {
+    color: #0A2A66;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.admin-table a:hover {
+    opacity: 0.8;
+}
+
+/* Messages */
+.admin-section p {
+    background-color: #fff;
+    border-left: 4px solid #0A2A66;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+
+    .admin-dashboard {
+        padding: 15px;
+    }
+
+    .admin-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .admin-section h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .admin-section p {
+        font-size: 14px;
+    }
+}
+
+/* ---------------------------
+   User Dashboard
+---------------------------- */
+
+.dashboard-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.dashboard-header h1 {
+    color: #0A2A66;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.dashboard-header p {
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+/* Grille principale : plein largeur, pas de colonne centrale */
+.dashboard-main-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    gap: 40px;
+}
+
+/* Sections Devis / Factures / Messagerie */
+.dashboard-section h2 {
+    margin-bottom: 15px;
+    color: #0A2A66;
+    border-bottom: 2px solid #0A2A66;
+    padding-bottom: 5px;
+}
+
+/* Cartes Devis / Factures */
+.dashboard-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid #0A2A66;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Boutons */
+.btn-dashboard {
+    background-color: #0A2A66;
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn-dashboard:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+/* Messagerie : bouton plus gros et visible */
+.btn-messages {
+    font-size: 20px;
+    padding: 18px 25px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-container {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{ session.get('lang', 'fr') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Portfolio Héloïse Laporte{% endblock %}</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="nav-left">
+        <a href="/">{{ t["nav_home"] }}</a>
+        <a href="/about">{{ t["nav_about"] }}</a>
+        <a href="/projects">{{ t["nav_projects"] }}</a>
+        <a href="/contact">{{ t["nav_contact"] }}</a>
+        <a href="{{ url_for('tarifs') }}">{{ t["nav_tarifs"] }}</a>
+    </div>
+
+    <div class="nav-right">
+        {% if session.get("user_id") %}
+            <a href="/dashboard">{{ t["nav_dashboard"] }}</a>
+            <a href="/messages">{{ t["nav_messages"] }}</a>
+            <a href="/change_password">{{ t["nav_change_password"] }}</a>
+            <a href="/logout">{{ t["nav_logout"] }}</a>
+        {% else %}
+            <a href="/login">{{ t["nav_login"] }}</a>
+            <a href="/register">{{ t["nav_register"] }}</a>
+        {% endif %}
+        <span class="lang-selector">
+            <a href="?lang=fr">FR</a> |
+            <a href="?lang=en">EN</a> |
+            <a href="?lang=es">ES</a>
+        </span>
+
+    </div>
+</nav>
+
+<!-- Conteneur principal -->
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <p class="flash {{ category }}">{{ msg }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; {{ datetime.utcnow().year }} Héloïse Laporte</p>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>{{ t["messages_title"] }}</h1>
+<div style="border:1px solid #ccc; padding:10px; max-width:600px;">
+{% for m in conversation %}
+{% if m["sender_id"] == session["user_id"] %}
+<p><strong>{{ t["you"] }}:</strong> {{ m["content"] }}</p>
+{% else %}
+<p><strong>Héloïse:</strong> {{ m["content"] }}</p>
+{% endif %}
+{% endfor %}
+</div>
+<form method="post" style="margin-top:20px;">
+<textarea name="message" required rows="3" cols="50"></textarea><br><br>
+<button type="submit">{{ t["send"] }}</button>
+</form>
+{% endblock %}

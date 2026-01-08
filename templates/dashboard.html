@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ t["dashboard_title"] }}{% endblock %}
+
+{% block content %}
+
+<!-- Dashboard Container plein à gauche -->
+<div class="dashboard-container full-left">
+
+    <header class="dashboard-header">
+        <h1>{{ t["dashboard_title"] }}</h1>
+        <p>{{ t["dashboard_welcome"] }} {{ session.get("user_email") }}</p>
+    </header>
+
+    <!-- Grille principale : Devis et Factures -->
+    <div class="dashboard-main-grid">
+
+        <!-- Devis -->
+        <section class="dashboard-section">
+            <h2>{{ t["dashboard_quotes"] }}</h2>
+            {% if quotes %}
+                <div class="cards-grid">
+                    {% for q in quotes %}
+                        <div class="dashboard-card">
+                            <h3>{{ q["number"] }} - {{ q["title"] or t["dashboard_quote_no_title"] }}</h3>
+                            <p><strong>{{ t["dashboard_date"] }}:</strong> {{ q["date"] }}</p>
+                            <p><strong>{{ t["dashboard_amount"] }}:</strong> {{ q["amount"] }} €</p>
+                            <p><strong>{{ t["dashboard_status"] }}:</strong> {{ q["status"] }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>{{ t["dashboard_no_quotes"] }}</p>
+            {% endif %}
+        </section>
+
+        <!-- Factures -->
+        <section class="dashboard-section">
+            <h2>{{ t["dashboard_invoices"] }}</h2>
+            {% if invoices %}
+                <div class="cards-grid">
+                    {% for inv in invoices %}
+                        <div class="dashboard-card invoice-card">
+                            <h3>{{ inv["number"] }}</h3>
+                            <p><strong>{{ t["dashboard_date"] }}:</strong> {{ inv["date"] }}</p>
+                            <p><strong>{{ t["dashboard_amount"] }}:</strong> {{ inv["amount"] }} €</p>
+                            <p><strong>{{ t["dashboard_status"] }}:</strong> {{ inv["status"] }}</p>
+                            <a href="{{ url_for('invoice_pdf', invoice_id=inv['id']) }}">
+                                <button class="btn-dashboard">{{ t["dashboard_download_pdf"] }}</button>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>{{ t["dashboard_no_invoices"] }}</p>
+            {% endif %}
+        </section>
+
+        <!-- Messagerie -->
+        <section class="dashboard-section messages-section">
+            <h2>{{ t["dashboard_messages"] }}</h2>
+            <a href="{{ url_for('messages') }}">
+                <button class="btn-dashboard btn-messages">{{ t["nav_messages"] }}</button>
+            </a>
+        </section>
+
+    </div>
+</div>
+
+{% endblock %}

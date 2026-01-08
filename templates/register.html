@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="auth-section">
+    <h1>{{ t["register_title"] }}</h1>
+    <form method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <label>{{ t["register_email"] }}:</label>
+        <input type="email" name="email" required>
+
+        <label>{{ t["register_password"] }}:</label>
+        <input type="password" name="password" required>
+
+        <label>{{ t["register_password2"] }}:</label>
+        <input type="password" name="password2" required>
+
+        <button type="submit">{{ t["register_submit"] }}</button>
+    </form>
+</div>
+{% endblock %}
