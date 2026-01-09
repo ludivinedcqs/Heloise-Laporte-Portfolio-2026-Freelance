@@ -42,11 +42,9 @@ app.secret_key = secrets.token_urlsafe(32)  # Change for production!
 app.permanent_session_lifetime = timedelta(hours=4)
 
 # File / path settings
-DB = "database.db"
-TRANSLATIONS_DIR = "translations"   # must contain fr.json, en.json, es.json
-ADMIN_EMAIL = "heloise@example.com" # change to real email
-ADMIN_PWD = "MotDePasseSecur123"    # change to secure password (used only for auto-create)
-ADMIN_NAME = "Héloïse"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB = os.path.join(BASE_DIR, "database.db")
+TRANSLATIONS_DIR = os.path.join(BASE_DIR, "translations")
 
 # -------------------------
 # Utilities - Database
@@ -165,15 +163,6 @@ def ensure_admin_exists():
     db.commit()
     print(f"🎉 Admin created: {ADMIN_EMAIL}")
 
-# Run admin ensure on app startup
-with app.app_context():
-    # only run if DB exists and schema present; otherwise skip to avoid errors
-    if os.path.exists(DB):
-        try:
-            ensure_admin_exists()
-        except Exception as e:
-            # print error but do not crash app startup
-            print("Warning: could not ensure admin exists:", e)
 
 # -------------------------
 # Helper utilities
